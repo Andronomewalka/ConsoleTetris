@@ -6,6 +6,7 @@ namespace Tetris
     {
         static void Main(string[] args)
         {
+            ///some
             MainController controller = new MainController();
             controller.Run();
         }
