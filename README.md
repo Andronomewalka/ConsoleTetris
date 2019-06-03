@@ -12,3 +12,19 @@ MainCotroller.MainLoop(). Также в нём осуществляется вы
 потому что такие контроллеры присущи только контроллеру главного меню.
 Принцип работы самой игры описан в соответствующем классе CurrentPart.
 Также в приложении реализована система учетных записей. К учетной записи привязываются: настройки, слоты сохранения, рекорд.
+
+
+
+![Alt text](Screenshots/mainMenuPage.png)
+
+![Alt text](Screenshots/loginPage.png)
+
+![Alt text](Screenshots/settingsPage.png)
+
+![Alt text](Screenshots/gamePage.png)
+
+![Alt text](Screenshots/gameOverPage.png)
+
+![Alt text](Screenshots/leaderboardPage.png)
+
+![Alt text](Screenshots/pauseMenuPage.png)
