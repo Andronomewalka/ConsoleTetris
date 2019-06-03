@@ -181,7 +181,7 @@ namespace GameAccount
                 {
                     if (i != 0)
                     {
-                        buffer[i-1] = '\0';
+                        buffer[i - 1] = '\0';
                         i -= 2;
                         left--;
                         Console.SetCursorPosition(left, top);
@@ -243,8 +243,15 @@ namespace GameAccount
 
         public static bool IsDirectoryEmpty()
         {
+            try
+            {
+                return !Directory.EnumerateFileSystemEntries(path).Any();
+            }
             // проверяет наличие хоть какого-нибудь аккаунта
-            return !Directory.EnumerateFileSystemEntries(path).Any();
+            catch
+            {
+                return true;
+            }
         }
 
         public static void ChangeFigureColor(ConsoleColor color)

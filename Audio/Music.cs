@@ -61,25 +61,28 @@ namespace GameAudio
             // совершить какой-либо ещё вызов, поток живет своей жизнью), это работает нормально в винформ приложении и впф,
             // но с консолью беда
 
-            player.Open(items[0]);
-            player.Play();
-
-            while (!EndGame)
+            if (items.Count() != 0)
             {
-                if (player.Position == player.NaturalDuration) // если текущая позиция трека равна её продолжительности > запустить следующий трек
+                player.Open(items[0]);
+                player.Play();
+
+                while (!EndGame)
                 {
-                    CurrentMedia++;
-                    player.Open(items[currentMedia]);
-                    player.Play();
+                    if (player.Position == player.NaturalDuration) // если текущая позиция трека равна её продолжительности > запустить следующий трек
+                    {
+                        CurrentMedia++;
+                        player.Open(items[currentMedia]);
+                        player.Play();
+                    }
+                    if (callExist)
+                    {
+                        if (callObject == "Volume")
+                            Volume = newVolume;
+                        callExist = false;
+                    }
+                    else
+                        Thread.Sleep(100);
                 }
-                if (callExist)
-                {
-                    if (callObject == "Volume")
-                        Volume = newVolume;
-                    callExist = false;
-                }
-                else
-                    Thread.Sleep(100);
             }
         }
 

@@ -9,6 +9,42 @@ namespace GameAccount
 {
     public static class Leaderboard
     {
+        private static string path;
+        static Leaderboard()
+        {
+            path = Directory.GetCurrentDirectory() + "\\leaderboard.dat";
+            if (!LeaderbordExist())
+                CreateLeaderboard();
+        }
+
+        private static void CreateLeaderboard()
+        {
+            leaderboard = new List<KeyValuePair<string, int>>();
+            for (int i = 0; i < 10; i++)
+                leaderboard.Add(new KeyValuePair<string, int>("empty", 0));
+
+            using (BinaryWriter writer = new BinaryWriter(File.Open(Directory.GetCurrentDirectory() + "\\leaderboard.dat", FileMode.Create)))
+            {
+                for (int i = 0; i < 10; i++)
+                {
+                    writer.Write(leaderboard[i].Key);
+                    writer.Write(leaderboard[i].Value);
+                }
+            }
+        }
+
+        private static bool LeaderbordExist()
+        {
+            try
+            {
+                return !Directory.EnumerateFileSystemEntries(path).Any();
+            }
+            // проверяет наличие хоть какого-нибудь аккаунта
+            catch
+            {
+                return false;
+            }
+        }
 
         public static List<KeyValuePair<string, int>> leaderboard { get; private set; } // Dictionary с повторяющимися ключами
 
