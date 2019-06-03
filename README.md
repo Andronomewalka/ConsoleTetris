@@ -25,6 +25,6 @@ MainCotroller.MainLoop(). Также в нём осуществляется вы
 
 ![Alt text](Screenshots/gameOverPage.png)
 
-![Alt text](Screenshots/leaderboard.png)
+![Alt text](Screenshots/leaderboardPage.png)
 
 ![Alt text](Screenshots/pauseMenuPage.png)
